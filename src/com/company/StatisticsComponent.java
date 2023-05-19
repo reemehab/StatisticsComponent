@@ -1,4 +1,5 @@
 package com.company;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +19,12 @@ public class StatisticsComponent {
         Map<String, Integer> courseCounts = new HashMap<>();
         for (Student student : students) {
             for (String course : student.getCourses()) {
-                courseCounts.put(course, courseCounts.getOrDefault(course, 0) + 1);
+                if (courseCounts.containsKey(course)) {
+                    courseCounts.put(course, courseCounts.get(course) + 1);
+                }
+                else {
+                    courseCounts.put(course, 1);
+                    }
             }
         }
         return courseCounts;
@@ -27,11 +33,11 @@ public class StatisticsComponent {
     public void displayStatistics() {
         int totalUsers = getTotalUsers();
         Map<String, Integer> courseCounts = getCourseCounts();
-
         System.out.println("Number of users: " + totalUsers);
         for (String course : courseCounts.keySet()) {
             int count = courseCounts.get(course);
             System.out.println("Number of students registered in " + course + " course: " + count);
         }
     }
+
 }
