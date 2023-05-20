@@ -8,21 +8,22 @@ class Student {
     private int id;
     private List<String> courses;
 
-    public Student(String name, int id, String... courses) {
+    public Student(String name, int id, ArrayList<String> courses) {
         this.name = name;
         this.id = id;
         this.courses = new ArrayList<>();
-        for (String course : courses) {
-            this.courses.add(course);
+        for (int i=0 ; i< courses.size() ; i++) {
+            this.courses.add(courses.get(i));
         }
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getId() {
-        return id;
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", courses=" + courses +
+                '}';
     }
 
     public List<String> getCourses() {

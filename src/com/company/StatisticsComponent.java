@@ -21,10 +21,9 @@ public class StatisticsComponent {
             for (String course : student.getCourses()) {
                 if (courseCounts.containsKey(course)) {
                     courseCounts.put(course, courseCounts.get(course) + 1);
-                }
-                else {
+                } else {
                     courseCounts.put(course, 1);
-                    }
+                }
             }
         }
         return courseCounts;
@@ -39,5 +38,4 @@ public class StatisticsComponent {
             System.out.println("Number of students registered in " + course + " course: " + count);
         }
     }
-
 }
