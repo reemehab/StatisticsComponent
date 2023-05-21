@@ -25,5 +25,5 @@ jobs:
       - name: Build and push Docker image
         run: |
           docker buildx create --use
-          docker buildx build --platform windows/amd64 -t your-dockerhub-username/image-name:tag .
-          docker push your-dockerhub-username/admin:tag
+          docker buildx build --platform windows/amd64 -t reemehab/admin:latest .
+          docker push reemehab/admin:latest
